@@ -52,11 +52,32 @@ form.message-form {
 textarea.message-input {;
   height: 48px;
   resize: none;
-  width: 100%;
+  display: block;
+  width: 98%;
+  margin-bottom: 4px;
   border: 2px solid #222;
 }
 
 /* MESSAGE AREA */
 .message-area {
-  min-height: 640px;
+  height: 85vh;
+  overflow-y: scroll;
+  padding: 12px;
+}
+
+.message {
+  background-color: #fff;
+  padding: 12px;
+  margin-bottom: 24px;
+  border: 2px solid #222;
+}
+
+.message .from {
+  text-align: right;
+  font-style: italic;
+}
+
+.message img {
+  width: 100%;
+  margin-bottom: 4px;
 }
