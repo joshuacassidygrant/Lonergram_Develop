@@ -1,10 +1,3 @@
-var sampleMessage = {
-  text: "hello",
-  user: "Barry Bluejeans",
-  time: 19028222,
-  photo: "https://images.unsplash.com/photo-1557502706-5a0e03129173?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1309&q=80"
-}
-
 let messages = [];
 
 let captureMessage = (nodeId) => {
@@ -18,7 +11,7 @@ let captureMessage = (nodeId) => {
   let time = new Date().getTime();
 
   //Then pass that object to addMessage with a callback to render the form
-  addMessage(textNode.value, userNode.value, time, photoNode.value, renderMessage);
+  addMessage(textNode.value, userNode.value, time, photoNode.value, renderMessages);
 
 }
 
@@ -29,7 +22,15 @@ let addMessage = (text, user, time, photo, callback) => {
     time,
     photo
   }
-  callback(message);
+  messages.push(message);
+  callback();
+}
+
+let renderMessages = () => {
+  clearMessageList();
+  for (let i = 0; i < messages.length; i++){
+    renderMessage(messages[i]);
+  }
 }
 
 let renderMessage = (message) => {
@@ -54,6 +55,16 @@ let renderMessage = (message) => {
   messageNode.appendChild(authorNode);
 
   //Parent message node to parent
-  var parentNode = document.getElementById('message-scroll');
+  var parentNode = document.getElementById("message-scroll");
   parentNode.appendChild(messageNode);
+}
+
+let clearMessageList = () => {
+  //Clears all messages in list.
+  let node = document.getElementById("message-scroll");
+  let child = node.lastElementChild;
+  while (child) {
+    node.removeChild(child);
+    child = node.lastElementChild;
+  }
 }
