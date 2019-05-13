@@ -120,6 +120,10 @@ form.message-form {
   display: inline-block;
 }
 
+#message-photo-frame img {
+  max-width: 100%;
+}
+
 
 /* MESSAGE AREA */
 .message-area {

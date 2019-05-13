@@ -9,7 +9,7 @@ function MessageModule() {
       let time = new Date().getTime();
 
       //Then pass that object to addMessage with a callback to render the form
-      this.addMessage(textNode.value, userNode.value, time, photoNode.value, this.renderMessages);
+      this.addMessage(textNode.value, userNode.value, time, photoNode.getAttribute("src"), this.renderMessages);
   }
 
   this.addMessage = (text, user, time, photo, callback) => {
@@ -73,6 +73,30 @@ function MessageModule() {
         node.removeChild(child);
         child = node.lastElementChild;
       }
+    },
+
+    this.handleImageUpload = (files) => {
+      var that = this;
+      var reader = new FileReader();
+         reader.readAsDataURL(files[0]);
+         reader.onload = function () {
+           that.renderImageFromBase64(reader.result);
+         };
+    },
+
+    this.renderImageFromBase64 = (b64Image) => {
+      //Clear any previous photos
+      let node = document.getElementById("message-photo-frame");
+      let child = node.lastElementChild;
+      while (child) {
+        node.removeChild(child);
+        child = node.lastElementChild;
+      }
+
+      let imageNode = document.createElement("img");
+      imageNode.setAttribute("src", b64Image);
+      imageNode.setAttribute("id", "message-photo");
+      node.appendChild(imageNode);
     }
 
     this.renderMessages();

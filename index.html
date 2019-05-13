@@ -38,7 +38,9 @@
             YOUR NAME:
             <input type="text" id="message-user" />
             YOUR PHOTO:
-            <input type="text" id="message-photo" />
+            <div id="message-photo-frame"/>
+            </div>
+            <input type="file" id="message-photo-upload" accept="image/*" onchange="messageModule.handleImageUpload(this.files)"/>
             CHOOSE FILTERS:
             <div class="filters-list">
               <div class="filter-group"><label>SEPIA</label><input type="range" id="filter-sepia" min="0" max="100" value="0"/></div>
