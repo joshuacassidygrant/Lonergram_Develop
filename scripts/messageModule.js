@@ -57,7 +57,7 @@ function MessageModule() {
 
       let authorNode = document.createElement("div");
       authorNode.setAttribute("class", "from");
-      authorNode.innerHTML = "— " + message.user + " at " + new Date(message.time).toLocaleString();
+      authorNode.innerHTML = "-- " + message.user + " at " + new Date(message.time).toLocaleString();
       messageNode.appendChild(authorNode);
 
       //Parent message node to parent

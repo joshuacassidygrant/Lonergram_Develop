@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" type="text/css"/ href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato|Modak" rel="stylesheet">
+    <link rel="stylesheet" type="text/css"/ href="styles/style.css">
   </head>
   <body>
 
@@ -9,10 +10,22 @@
       <div class="container" id="nav-container">
         <div class="row">
           <div class="column above right half">
-            JOSHUA's COOL WEBSITE
+            <h1 class="brand">
+              <span class="c1">L</span>
+              <span class="c2">O</span>
+              <span class="c3">N</span>
+              <span class="c4">E</span>
+              <span class="c5">R</span>
+              <span class="c6">G</span>
+              <span class="c7">R</span>
+              <span class="c8">A</span>
+              <span class="c9">M</span>
+            </h1>
           </div>
           <div class="column above half">
-            BOARD // THINGS // ABOUT
+            <div class="navbar">
+              BOARD // THINGS // ABOUT
+            </div>
           </div>
         </div>
 
@@ -26,6 +39,13 @@
             <input type="text" id="message-user" />
             YOUR PHOTO:
             <input type="text" id="message-photo" />
+            CHOOSE FILTERS:
+            <div class="filters-list">
+              <div class="filter-group"><label>SEPIA</label><input type="range" id="filter-sepia" min="0" max="100" value="0"/></div>
+              <div class="filter-group"><label>HUE</label><input type="range" id="filter-hueshift" min="0" max="100" value="0"/></div>
+              <div class="filter-group"><label>BLUR </label><input type="range" id="filter-blur" min="0" max="100" value="0"/></div>
+              <div class="filter-group"><label>CONTRAST </label><input type="range" id="filter-contrast" min="0" max="100" value="0"/></div>
+            </div>
             <input type="button" name="clear" value="CLEAR"/>
             <input type="button" name="submit" value="SUBMIT" onclick="messageModule.captureMessage('message-form')"/>
           </form>
