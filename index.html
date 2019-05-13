@@ -19,15 +19,19 @@
       </div>
       <div class="row">
         <div class="column one-third right" id="left-hand-column">
-          <form class="message-form">
+          <form class="message-form" id="message-form">
             YOUR MESSAGE:
-            <textarea class="message-input"></textarea>
+            <textarea class="message-input" id="message-text"></textarea>
+            YOUR NAME:
+            <input type="text" id="message-user" />
+            YOUR PHOTO:
+            <input type="text" id="message-photo" />
             <input type="button" name="clear" value="CLEAR"/>
-            <input type="button" name="submit" value="SUBMIT"/>
+            <input type="button" name="submit" value="SUBMIT" onclick="captureMessage('message-form')"/>
           </form>
         </div>
         <div class="column two-thirds" id="right-hand-column">
-          <div class="message-area">
+          <div class="message-area" id="message-scroll">
             <div class="message">
               Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
               <div class="from">— Jamison Weed</div>

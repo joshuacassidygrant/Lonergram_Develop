@@ -49,13 +49,22 @@ form.message-form {
   padding: 12px;
 }
 
-textarea.message-input {;
+.message-form textarea {;
   height: 48px;
   resize: none;
   display: block;
   width: 98%;
   margin-bottom: 4px;
   border: 2px solid #222;
+}
+
+.message-form input[type=text]  {
+  border: 2px solid #222;
+  display: block;
+  width: 100%;
+  margin-bottom: 4px;
+
+
 }
 
 /* MESSAGE AREA */
