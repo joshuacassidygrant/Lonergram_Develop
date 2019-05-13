@@ -1,0 +1,42 @@
+body {
+  background-color: #eee;
+}
+
+#main-container {
+  width: 1160px;
+  background-color: #fff;
+  margin: auto;
+}
+
+.column {
+  border: #222 2px solid;
+  padding: 12px;
+
+}
+
+.row {
+  display: flex;
+  flex-flow: row nowrap;
+
+}
+
+.right {
+  border-right-width: 0;
+}
+
+.above {
+  border-bottom-width: 0;
+}
+
+.one-third {
+  flex-grow: 3;
+  margin-left: 0;
+}
+
+.two-thirds {
+  flex-grow: 6;
+}
+
+.half {
+  flex-grow: 5;
+}
