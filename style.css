@@ -1,5 +1,6 @@
 body {
   background-color: #eee;
+  font-family: sans-serif;
 }
 
 #main-container {
@@ -8,15 +9,17 @@ body {
   margin: auto;
 }
 
+/* LAYOUT */
 .column {
   border: #222 2px solid;
   padding: 12px;
+  display: block;
+  float: left;
 
 }
 
 .row {
-  display: flex;
-  flex-flow: row nowrap;
+  display: block;
 
 }
 
@@ -29,14 +32,31 @@ body {
 }
 
 .one-third {
-  flex-grow: 3;
+  width: calc(33% - 23px);
   margin-left: 0;
 }
 
 .two-thirds {
-  flex-grow: 6;
+  width: calc(66% - 23px);
 }
 
 .half {
-  flex-grow: 5;
+  width: calc(50% - 29px);
+}
+
+/* FORM */
+form.message-form {
+  padding: 12px;
+}
+
+textarea.message-input {;
+  height: 48px;
+  resize: none;
+  width: 100%;
+  border: 2px solid #222;
+}
+
+/* MESSAGE AREA */
+.message-area {
+  min-height: 640px;
 }
