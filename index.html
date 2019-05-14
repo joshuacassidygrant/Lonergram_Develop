@@ -9,7 +9,7 @@
     <div class ="container" id="main-container">
       <div class="container" id="nav-container">
         <div class="row">
-          <div class="column above right half">
+          <div class="column above right half brand-bg">
             <h1 class="brand">
               <span class="c1">L</span>
               <span class="c2">O</span>
@@ -40,7 +40,9 @@
             YOUR PHOTO:
             <div id="message-photo-frame"/>
             </div>
-            <input type="file" id="message-photo-upload" accept="image/*" onchange="messageModule.handleImageUpload(this.files)"/>
+            <div>
+              <input type="file" id="message-photo-upload" accept="image/*" onchange="messageModule.handleImageUpload(this.files)"/>
+            </div>
             CHOOSE FILTERS:
             <div class="filters-list">
               <div class="filter-group"><label>SEPIA</label><input type="range" id="filter-sepia" min="0" max="100" value="0" onchange="messageModule.setFilter('sepia', value)"/></div>
@@ -50,9 +52,23 @@
             </div>
             <input type="button" name="clear" value="CLEAR"/>
             <input type="button" name="submit" value="SUBMIT" onclick="messageModule.captureMessage('message-form')"/>
+            <div class="row message-controls">
+              <div>
+                <p>IMPORT CONTENT:</p>
+                <input id="json-upload" type="file" accept="text/json" onchange="messageModule.loadContent(this.files)" />
+              </div>
+              <div>
+                <p>EXPORT CONTENT:</p>
+                <input type="button" value="EXPORT"/>
+              </div>
+              <div>
+                <p>CLEAR CONTENT:</p>
+                <input type="button" value="EXPORT"/>
+              </div>
+            </div>
           </form>
         </div>
-        <div class="column two-thirds" id="right-hand-column">
+        <div class="column two-thirds message-bg" id="right-hand-column">
           <div class="message-area" id="message-scroll">
               <!--Messages go here!-->
           </div>

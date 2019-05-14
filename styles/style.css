@@ -53,11 +53,16 @@ body {
 }
 
 /* BRANDING */
+.brand-bg {
+  background-color: #555;
+}
+
 h1.brand {
   font-family: "Modak", cursive;
   font-weight: 400;
   margin: 0;
   font-size: 3em;
+  margin-left: 16px;
 }
 
 h1.brand span {
@@ -68,18 +73,18 @@ h1.brand span {
     -2px 2px 0 #222,
      2px 2px 0 #222;
   display: inline-block;
-  transition: margin-left 0.5s ease-in, transform 0.5s ease-in-out;
+  transition: margin-left 0.5s ease-in, transform 0.1s ease-in-out;
 }
 
 h1.brand:hover span {
-  margin-left: 4px;
+  margin-left: 0.5px;
 }
 
 h1.brand span:hover {
-  transform: scale(2);
+  transform: scale(1.2);
 }
 
-h1.brand .c1 { color: #3B0470; }
+h1.brand .c1 { color: #8D41D6; }
 h1.brand .c2 { color: #B90091; }
 h1.brand .c3 { color: #BAF300; }
 h1.brand .c4 { color: #8D41D6; }
@@ -97,7 +102,7 @@ h1.brand .c9 { color: #BAF300; }
 }
 
 .navbar {
-  padding: 28px;
+  padding: 27px;
   text-align: right;
 }
 
@@ -145,12 +150,21 @@ form.message-form {
   display: inline-block;
 }
 
+#message-photo-frame {
+  max-height: 360px;
+  overflow-y: scroll;
+}
+
 #message-photo-frame img {
   max-width: 100%;
 }
 
 
 /* MESSAGE AREA */
+.message-bg {
+  background-color: #DDD;
+}
+
 .message-area {
   height: 85vh;
   overflow-y: scroll;

@@ -147,7 +147,17 @@ function MessageModule() {
     },
 
     this.denormalizeContrastValue = (value) => {
-      return value + 1;
+      return Math.log(value) + 0.25;
+    },
+
+    this.loadContent = (files) => {
+      var that = this;
+      var reader = new FileReader();
+         reader.readAsText(files[0]);
+         reader.onload = function () {
+           that.messages = JSON.parse(reader.result);
+           that.renderMessages();
+         };
     }
 
 
