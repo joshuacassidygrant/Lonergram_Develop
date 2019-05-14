@@ -48,7 +48,7 @@
               <div class="filter-group"><label>SEPIA</label><input type="range" id="filter-sepia" min="0" max="100" value="0" onchange="messageModule.setFilter('sepia', value)"/></div>
               <div class="filter-group"><label>HUE</label><input type="range" id="filter-hueshift" min="0" max="100" value="0" onchange="messageModule.setFilter('hueShift', value)" /></div>
               <div class="filter-group"><label>BLUR </label><input type="range" id="filter-blur" min="0" max="100" value="0" onchange="messageModule.setFilter('blur', value)"/></div>
-              <div class="filter-group"><label>CONTRAST </label><input type="range" id="filter-contrast" min="0" max="100" value="0" onchange="messageModule.setFilter('contrast', value)"/></div>
+              <div class="filter-group"><label>CONTRAST </label><input type="range" id="filter-contrast" min="0" max="5" value="1" onchange="messageModule.setFilter('contrast', value)"/></div>
             </div>
             <input type="button" name="clear" value="CLEAR" onclick="messageModule.clearForm('message-form')"/>
             <input type="button" name="submit" value="SUBMIT" onclick="messageModule.captureMessage('message-form')"/>
@@ -60,11 +60,11 @@
           <div class="message-area" id="message-scroll">
               <!--Messages go here!-->
           </div>
-          <div class="row" id="message-controls">
+          <form class="row" id="message-controls">
             <div class="row" id="controls-toggle" onclick="toggleControls()">CONTROLS:</div>
             <div class="one-third column-borderless">
               <p>IMPORT CONTENT:</p>
-              <input id="json-upload" type="file" accept="text/json" onchange="messageModule.loadContent(this.files)" />
+              <input id="json-upload" type="file" accept="text/json" onchange="messageModule.loadContent(this.files, 'message-controls')" />
             </div>
             <div class="quarter column-borderless">
               <p>EXPORT CONTENT:</p>

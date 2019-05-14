@@ -9,58 +9,7 @@ body {
   margin: auto;
 }
 
-/* LAYOUT */
-.column {
-  border: #222 2px solid;
-  padding: 12px;
-  display: block;
-  float: left;
 
-}
-
-.column-borderless {
-  padding: 12px;
-  display: block;
-  float: left;
-}
-
-.row {
-  display: block;
-
-}
-
-.right {
-  border-right-width: 0;
-}
-
-.above {
-  border-bottom-width: 0;
-}
-
-.one-third {
-  width: calc(33% - 23px);
-  margin-left: 0;
-}
-
-.two-thirds {
-  width: calc(66% - 23px);
-}
-
-.quarter {
-  width: 25%;
-}
-
-.half {
-  width: calc(50% - 29px);
-}
-
-.full {
-  width: calc(100% - 32px);
-}
-
-.padded-inner {
-  padding: 72px;
-}
 
 /* BRANDING */
 .brand-bg {
@@ -217,4 +166,89 @@ form.message-form {
   background-color: #BAF300;
   padding: 4px 8px;
   cursor: pointer;
+}
+
+/* LAYOUT */
+.column {
+  border: #222 2px solid;
+  padding: 12px;
+  display: block;
+  float: left;
+
+}
+
+.column-borderless {
+  padding: 12px;
+  display: block;
+  float: left;
+}
+
+.row {
+  display: block;
+
+}
+
+.right {
+  border-right-width: 0;
+}
+
+.above {
+  border-bottom-width: 0;
+}
+
+.one-third {
+  width: calc(33% - 23px);
+  margin-left: 0;
+}
+
+.two-thirds {
+  width: calc(66% - 23px);
+}
+
+.quarter {
+  width: 25%;
+}
+
+.half {
+  width: calc(50% - 29px);
+}
+
+.full {
+  width: calc(100% - 32px);
+}
+
+.padded-inner {
+  padding: 72px;
+}
+
+@media screen and (max-width: 1160px) {
+  #main-container {
+    width: 800px;
+    background-color: #fff;
+    margin: auto;
+  }
+
+}
+
+@media screen and (max-width: 800px) {
+  #main-container {
+    width: 640px;
+  }
+
+  /*TODO: fix these idiotic measurements */
+  .half {
+    width: 97%;
+  }
+
+  .one-third {
+    width: 97%;
+  }
+
+  .two-thirds {
+    width: 97%;
+  }
+
+  form.message-form {
+    height: auto;
+  }
 }

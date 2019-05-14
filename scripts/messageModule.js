@@ -147,18 +147,19 @@ function MessageModule() {
     },
 
     this.denormalizeContrastValue = (value) => {
-      return Math.log(value) + 0.25;
+      return Math.log(value+ 1) + 0.1;
     },
 
-    this.loadContent = (files) => {
-      var that = this;
-      var reader = new FileReader();
+    this.loadContent = (files, formId) => {
+      let that = this;
+      let reader = new FileReader();
          reader.readAsText(files[0]);
          reader.onload = function () {
            that.messages = JSON.parse(reader.result);
            that.renderMessages();
          };
-         //TODO: clear upload field after
+      let formNode = document.getElementById(formId);
+      formNode.reset();
     },
 
     this.clearContent = () => {
