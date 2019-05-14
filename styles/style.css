@@ -176,9 +176,13 @@ form.message-form {
 }
 
 .message-area {
-  height: 85vh;
+  height: calc(85vh - 128px);
   overflow-y: scroll;
   padding: 12px;
+}
+
+.controls-collapsed .message-area {
+  height: calc(85vh - 24px);
 }
 
 .message {
@@ -200,9 +204,16 @@ form.message-form {
 
 /* MESSAGE CONTROLS */
 #message-controls {
+  height: 72px;
+}
+
+.controls-collapsed #message-controls {
+  height: 24px;
+  overflow-y:hidden;
 
 }
 
-#message-controls.collapsed {
-  height: 16px;
+#message-controls .row#controls-toggle {
+  background-color: #BAF300;
+  padding: 4px 8px;
 }

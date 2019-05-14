@@ -56,11 +56,12 @@
             </div>
           </form>
         </div>
-        <div class="column two-thirds message-bg" id="right-hand-column">
+        <div class="column two-thirds message-bg controls-collapsed" id="right-hand-column">
           <div class="message-area" id="message-scroll">
               <!--Messages go here!-->
           </div>
-          <div class="row message-controls" id="collapsed-controls">
+          <div class="row" id="message-controls">
+            <div class="row" id="controls-toggle" onclick="toggleControls()">CONTROLS:</div>
             <div class="one-third column-borderless">
               <p>IMPORT CONTENT:</p>
               <input id="json-upload" type="file" accept="text/json" onchange="messageModule.loadContent(this.files)" />
