@@ -44,6 +44,14 @@ body {
   width: calc(50% - 29px);
 }
 
+.full {
+  width: calc(100% - 32px);
+}
+
+.padded-inner {
+  padding: 72px;
+}
+
 /* BRANDING */
 h1.brand {
   font-family: "Modak", cursive;
@@ -59,11 +67,16 @@ h1.brand span {
     2px -2px 0 #222,
     -2px 2px 0 #222,
      2px 2px 0 #222;
-  transition: margin-left 0.5s ease-in;
+  display: inline-block;
+  transition: margin-left 0.5s ease-in, transform 0.5s ease-in-out;
 }
 
 h1.brand:hover span {
   margin-left: 4px;
+}
+
+h1.brand span:hover {
+  transform: scale(2);
 }
 
 h1.brand .c1 { color: #3B0470; }
@@ -84,7 +97,19 @@ h1.brand .c9 { color: #BAF300; }
 }
 
 .navbar {
-  padding: 28px 0;
+  padding: 28px;
+  text-align: right;
+}
+
+.navbar a {
+  text-decoration: none;
+  font-weight: 700;
+  padding-left: 12px;
+  color: #DC37BB;
+}
+
+.navbar a:hover {
+  color: #8D41D6;
 }
 
 /* FORM */
