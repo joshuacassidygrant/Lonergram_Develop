@@ -216,4 +216,5 @@ form.message-form {
 #message-controls .row#controls-toggle {
   background-color: #BAF300;
   padding: 4px 8px;
+  cursor: pointer;
 }

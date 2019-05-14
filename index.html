@@ -50,7 +50,7 @@
               <div class="filter-group"><label>BLUR </label><input type="range" id="filter-blur" min="0" max="100" value="0" onchange="messageModule.setFilter('blur', value)"/></div>
               <div class="filter-group"><label>CONTRAST </label><input type="range" id="filter-contrast" min="0" max="100" value="0" onchange="messageModule.setFilter('contrast', value)"/></div>
             </div>
-            <input type="button" name="clear" value="CLEAR"/>
+            <input type="button" name="clear" value="CLEAR" onclick="messageModule.clearForm('message-form')"/>
             <input type="button" name="submit" value="SUBMIT" onclick="messageModule.captureMessage('message-form')"/>
 
             </div>

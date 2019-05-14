@@ -158,6 +158,7 @@ function MessageModule() {
            that.messages = JSON.parse(reader.result);
            that.renderMessages();
          };
+         //TODO: clear upload field after
     },
 
     this.clearContent = () => {
@@ -176,6 +177,20 @@ function MessageModule() {
       document.body.appendChild(dl);
       dl.click();
       document.body.removeChild(dl);
+    },
+
+    this.clearForm = (nodeId) => {
+      let formNode = document.querySelector("#" + nodeId);
+      formNode.reset();
+
+      let photoFrameNode = document.querySelector("#" + nodeId + " #message-photo-frame");
+
+      let child = photoFrameNode.lastElementChild;
+      while (child) {
+        photoFrameNode.removeChild(child);
+        child = photoFrameNode.lastElementChild;
+      }
+
     }
 
 
