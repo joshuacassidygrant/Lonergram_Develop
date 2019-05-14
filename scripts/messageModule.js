@@ -158,6 +158,24 @@ function MessageModule() {
            that.messages = JSON.parse(reader.result);
            that.renderMessages();
          };
+    },
+
+    this.clearContent = () => {
+      this.messages = [];
+      this.renderMessages();
+    },
+
+    this.exportContent = () => {
+      //TODO: this is hacky -- fix it
+      let blob = new Blob([JSON.stringify(this.messages)], { type: "json" });
+      let dl = document.createElement('a');
+      dl.download = "content.json";
+      dl.href = URL.createObjectURL(blob);
+      dl.dataset.downloadurl = ["json", dl.download, dl.href].join(':');
+      dl.style.display = "none";
+      document.body.appendChild(dl);
+      dl.click();
+      document.body.removeChild(dl);
     }
 
 
