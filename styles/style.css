@@ -18,6 +18,12 @@ body {
 
 }
 
+.column-borderless {
+  padding: 12px;
+  display: block;
+  float: left;
+}
+
 .row {
   display: block;
 
@@ -38,6 +44,10 @@ body {
 
 .two-thirds {
   width: calc(66% - 23px);
+}
+
+.quarter {
+  width: 25%;
 }
 
 .half {
@@ -186,4 +196,13 @@ form.message-form {
 .message img {
   width: 100%;
   margin-bottom: 4px;
+}
+
+/* MESSAGE CONTROLS */
+#message-controls {
+
+}
+
+#message-controls.collapsed {
+  height: 16px;
 }
