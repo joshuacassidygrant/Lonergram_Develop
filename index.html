@@ -43,10 +43,10 @@
             <input type="file" id="message-photo-upload" accept="image/*" onchange="messageModule.handleImageUpload(this.files)"/>
             CHOOSE FILTERS:
             <div class="filters-list">
-              <div class="filter-group"><label>SEPIA</label><input type="range" id="filter-sepia" min="0" max="100" value="0"/></div>
-              <div class="filter-group"><label>HUE</label><input type="range" id="filter-hueshift" min="0" max="100" value="0"/></div>
-              <div class="filter-group"><label>BLUR </label><input type="range" id="filter-blur" min="0" max="100" value="0"/></div>
-              <div class="filter-group"><label>CONTRAST </label><input type="range" id="filter-contrast" min="0" max="100" value="0"/></div>
+              <div class="filter-group"><label>SEPIA</label><input type="range" id="filter-sepia" min="0" max="100" value="0" onchange="messageModule.setFilter('sepia', value)"/></div>
+              <div class="filter-group"><label>HUE</label><input type="range" id="filter-hueshift" min="0" max="100" value="0" onchange="messageModule.setFilter('hueShift', value)" /></div>
+              <div class="filter-group"><label>BLUR </label><input type="range" id="filter-blur" min="0" max="100" value="0" onchange="messageModule.setFilter('blur', value)"/></div>
+              <div class="filter-group"><label>CONTRAST </label><input type="range" id="filter-contrast" min="0" max="100" value="0" onchange="messageModule.setFilter('contrast', value)"/></div>
             </div>
             <input type="button" name="clear" value="CLEAR"/>
             <input type="button" name="submit" value="SUBMIT" onclick="messageModule.captureMessage('message-form')"/>
@@ -54,8 +54,7 @@
         </div>
         <div class="column two-thirds" id="right-hand-column">
           <div class="message-area" id="message-scroll">
-
-
+              <!--Messages go here!-->
           </div>
         </div>
       </div>
