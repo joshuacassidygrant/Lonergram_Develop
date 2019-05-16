@@ -41,17 +41,17 @@
             <div id="message-photo-frame"/>
             </div>
             <div>
-              <input type="file" id="message-photo-upload" accept="image/*" onchange="messageModule.handleImageUpload(this.files)"/>
+              <input type="file" id="message-photo-upload" accept="image/*" onchange="messageFormModule.handleImageUpload(this.files)"/>
             </div>
             CHOOSE FILTERS:
             <div class="filters-list">
-              <div class="filter-group"><label>SEPIA</label><input type="range" id="filter-sepia" min="0" max="100" value="0" onchange="messageModule.setFilter('sepia', value)"/></div>
-              <div class="filter-group"><label>HUE</label><input type="range" id="filter-hueshift" min="0" max="100" value="0" onchange="messageModule.setFilter('hueShift', value)" /></div>
-              <div class="filter-group"><label>BLUR </label><input type="range" id="filter-blur" min="0" max="100" value="0" onchange="messageModule.setFilter('blur', value)"/></div>
-              <div class="filter-group"><label>CONTRAST </label><input type="range" id="filter-contrast" min="0" max="5" value="1" onchange="messageModule.setFilter('contrast', value)"/></div>
+              <div class="filter-group"><label>SEPIA</label><input type="range" id="filter-sepia" min="0" max="100" value="0" onchange="messageFormModule.setFilter('sepia', value)"/></div>
+              <div class="filter-group"><label>HUE</label><input type="range" id="filter-hueshift" min="0" max="100" value="0" onchange="messageFormModule.setFilter('hueShift', value)" /></div>
+              <div class="filter-group"><label>BLUR </label><input type="range" id="filter-blur" min="0" max="100" value="0" onchange="messageFormModule.setFilter('blur', value)"/></div>
+              <div class="filter-group"><label>CONTRAST </label><input type="range" id="filter-contrast" min="0" max="5" value="1" onchange="messageFormModule.setFilter('contrast', value)"/></div>
             </div>
-            <input type="button" name="clear" value="CLEAR" onclick="messageModule.clearForm('message-form')"/>
-            <input type="button" name="submit" value="SUBMIT" onclick="messageModule.captureMessage('message-form')"/>
+            <input type="button" name="clear" value="CLEAR" onclick="messageFormModule.clearForm('message-form')"/>
+            <input type="button" name="submit" value="SUBMIT" onclick="messageFormModule.captureMessage('message-form')"/>
 
             </div>
           </form>
@@ -78,7 +78,8 @@
       </div>
     </div>
     <!--Scripts go down here-->
-    <script type="text/javascript" src="scripts/messageModule.js"></script>
+    <script type="text/javascript" src="scripts/messageDisplayModule.js"></script>
+    <script type="text/javascript" src="scripts/messageFormModule.js"></script>
     <script type="text/javascript" src="scripts/main.js"></script>
   </body>
 </html>
