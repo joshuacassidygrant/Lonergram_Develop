@@ -70,6 +70,7 @@ h1.brand .c9 { color: #BAF300; }
   font-weight: 700;
   padding-left: 12px;
   color: #DC37BB;
+  cursor: pointer;
 }
 
 .navbar a:hover {
@@ -153,7 +154,8 @@ form.message-form {
 
 /* MESSAGE CONTROLS */
 #message-controls {
-  height: 72px;
+  height: auto;
+  border: 2px solid #222;
 }
 
 .controls-collapsed #message-controls {

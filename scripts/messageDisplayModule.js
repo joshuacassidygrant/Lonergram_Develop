@@ -98,16 +98,14 @@ function MessageDisplayModule() {
     },
 
     this.exportContent = () => {
-      //TODO: this is hacky -- fix it
       let blob = new Blob([JSON.stringify(this.messages)], { type: "json" });
       let dl = document.createElement('a');
       dl.download = "content.json";
       dl.href = URL.createObjectURL(blob);
       dl.dataset.downloadurl = ["json", dl.download, dl.href].join(':');
-      dl.style.display = "none";
-      document.body.appendChild(dl);
-      dl.click();
-      document.body.removeChild(dl);
+      dl.innerHTML = "Download!";
+
+      document.getElementById("download-link-holder").appendChild(dl);
     },
 
     this.denormalizeBlurValue = (value) => {
@@ -123,7 +121,7 @@ function MessageDisplayModule() {
     },
 
     this.denormalizeContrastValue = (value) => {
-      return Math.log(value+ 1) + 0.5;
+      return (value + 1)/10;
     }
 
 
