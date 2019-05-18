@@ -10,14 +10,19 @@ function MessageFormModule(messageModule) {
       let filters = this.getFilters();
       let time = new Date().getTime();
 
-      //TODO: someday, add error handling/verification here.
+      //TODO: someday, add error handling/verification/notificaitons here.
       if (photoNode == null) {
-        console.log("Need to add a photo!");
+        this.clearPreviewImage();
+        let parentNode = document.getElementById("message-photo-frame");
+        let warningNode = document.createElement("p");
+        warningNode.classList.add("warning");
+        warningNode.innerHTML = "You must add a photo to submit a message!";
+        parentNode.appendChild(warningNode);
         return;
       }
       //Then pass that object to addMessage with a callback to render the form
       messageModule.addMessage(textNode.value, userNode.value, time, photoNode.getAttribute("src"), filters, messageModule.renderMessages);
-      clearForm();
+      this.clearForm(nodeId);
   }
 
   this.handleImageUpload = (files) => {
@@ -29,14 +34,19 @@ function MessageFormModule(messageModule) {
        };
   }
 
-  this.renderPreviewImageFromBase64 = (b64Image) => {
-    //Clear any previous photos
+  this.clearPreviewImage = () => {
     let node = document.getElementById("message-photo-frame");
     let child = node.lastElementChild;
     while (child) {
       node.removeChild(child);
       child = node.lastElementChild;
     }
+  }
+
+  this.renderPreviewImageFromBase64 = (b64Image) => {
+    this.clearPreviewImage();
+    let node = document.getElementById("message-photo-frame");
+
 
     let imageNode = document.createElement("img");
     imageNode.setAttribute("src", b64Image);
