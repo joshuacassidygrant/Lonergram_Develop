@@ -56,7 +56,7 @@ function MessageDisplayModule() {
       //Parent message node to parent
       let parentNode = document.getElementById("message-scroll");
       parentNode.appendChild(messageNode);
-    },
+    }
 
 
     this.applyFiltersToImage = (filters, imageNode) => {
@@ -68,7 +68,7 @@ function MessageDisplayModule() {
 
       styleString += ";";
       imageNode.setAttribute("style", styleString)
-    },
+    }
 
     this.clearMessageList = () => {
       //Clears all messages in list.
@@ -78,7 +78,7 @@ function MessageDisplayModule() {
         node.removeChild(child);
         child = node.lastElementChild;
       }
-    },
+    }
 
     this.loadContent = (files, formId) => {
       let that = this;
@@ -90,15 +90,16 @@ function MessageDisplayModule() {
          };
       let formNode = document.getElementById(formId);
       formNode.reset();
-    },
+    }
 
     this.clearContent = () => {
       this.messages = [];
       this.renderMessages();
-    },
+    }
 
     this.exportContent = () => {
       let blob = new Blob([JSON.stringify(this.messages)], { type: "json" });
+
       let dl = document.createElement('a');
       dl.download = "content.json";
       dl.href = URL.createObjectURL(blob);
@@ -106,19 +107,19 @@ function MessageDisplayModule() {
       dl.innerHTML = "Download!";
 
       document.getElementById("download-link-holder").appendChild(dl);
-    },
+    }
 
     this.denormalizeBlurValue = (value) => {
       return value/15 + "px";
-    },
+    }
 
     this.denormalizeSepiaValue = (value) => {
       return value/100;
-    },
+    }
 
     this.denormalizeHueShiftValue = (value) => {
       return value * 3.6 + "deg";
-    },
+    }
 
     this.denormalizeContrastValue = (value) => {
       return (value + 1)/10;

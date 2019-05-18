@@ -21,7 +21,7 @@ function MessageFormModule(messageModule) {
        reader.onload = function () {
          that.renderPreviewImageFromBase64(reader.result);
        };
-  },
+  }
 
   this.renderPreviewImageFromBase64 = (b64Image) => {
     //Clear any previous photos
@@ -36,13 +36,13 @@ function MessageFormModule(messageModule) {
     imageNode.setAttribute("src", b64Image);
     imageNode.setAttribute("id", "message-photo");
     node.appendChild(imageNode);
-  },
+  }
 
   this.setFilter = (id, value) => {
     let imagePreviewNode = document.getElementById("message-photo");
     let filters = this.getFilters();
     messageModule.applyFiltersToImage(filters, imagePreviewNode);
-  },
+  }
 
   this.getFilters = () => {
     let sepiaNode = document.getElementById("filter-sepia");
@@ -56,7 +56,7 @@ function MessageFormModule(messageModule) {
       blur: blurNode.value,
       contrast: contrastNode.value
     }
-  },
+  }
 
 
   this.clearForm = (nodeId) => {
