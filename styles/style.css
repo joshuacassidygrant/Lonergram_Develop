@@ -83,6 +83,10 @@ form.message-form {
   height: 85vh;
 }
 
+form.message-form>div {
+  margin-top: 12px;
+}
+
 .message-form textarea {;
   height: 48px;
   resize: none;

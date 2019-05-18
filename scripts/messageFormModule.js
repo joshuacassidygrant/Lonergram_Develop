@@ -10,8 +10,14 @@ function MessageFormModule(messageModule) {
       let filters = this.getFilters();
       let time = new Date().getTime();
 
+      //TODO: someday, add error handling/verification here.
+      if (photoNode == null) {
+        console.log("Need to add a photo!");
+        return;
+      }
       //Then pass that object to addMessage with a callback to render the form
       messageModule.addMessage(textNode.value, userNode.value, time, photoNode.getAttribute("src"), filters, messageModule.renderMessages);
+      clearForm();
   }
 
   this.handleImageUpload = (files) => {

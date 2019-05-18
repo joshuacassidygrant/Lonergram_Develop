@@ -33,22 +33,30 @@
       <div class="row">
         <div class="column one-third right" id="left-hand-column">
           <form class="message-form" id="message-form">
-            YOUR MESSAGE:
-            <textarea class="message-input" id="message-text"></textarea>
-            YOUR NAME:
-            <input type="text" id="message-user" />
-            YOUR PHOTO:
-            <div id="message-photo-frame"/>
+            <div>
+              YOUR MESSAGE:
+              <textarea class="message-input" id="message-text"></textarea>
             </div>
             <div>
+              YOUR NAME:
+              <input type="text" id="message-user" />
+            </div>
+            <div>
+            YOUR PHOTO:
+              <div id="message-photo-frame"/>
+              </div>
+              <div>
+            </div>
               <input type="file" id="message-photo-upload" accept="image/*" onchange="messageFormModule.handleImageUpload(this.files)"/>
             </div>
-            CHOOSE FILTERS:
-            <div class="filters-list">
-              <div class="filter-group"><label>SEPIA</label><input type="range" id="filter-sepia" min="0" max="100" value="0" onchange="messageFormModule.setFilter('sepia', value)"/></div>
-              <div class="filter-group"><label>HUE</label><input type="range" id="filter-hueshift" min="0" max="100" value="0" onchange="messageFormModule.setFilter('hueShift', value)" /></div>
-              <div class="filter-group"><label>BLUR </label><input type="range" id="filter-blur" min="0" max="100" value="0" onchange="messageFormModule.setFilter('blur', value)"/></div>
-              <div class="filter-group"><label>CONTRAST </label><input type="range" id="filter-contrast" min="0" max="5" value="1" onchange="messageFormModule.setFilter('contrast', value)"/></div>
+            <div>
+              CHOOSE FILTERS:
+              <div class="filters-list">
+                <div class="filter-group"><label>SEPIA</label><input type="range" id="filter-sepia" min="0" max="100" value="0" onchange="messageFormModule.setFilter('sepia', value)"/></div>
+                <div class="filter-group"><label>HUE</label><input type="range" id="filter-hueshift" min="0" max="100" value="0" onchange="messageFormModule.setFilter('hueShift', value)" /></div>
+                <div class="filter-group"><label>BLUR </label><input type="range" id="filter-blur" min="0" max="100" value="0" onchange="messageFormModule.setFilter('blur', value)"/></div>
+                <div class="filter-group"><label>CONTRAST </label><input type="range" id="filter-contrast" min="0" max="5" value="1" onchange="messageFormModule.setFilter('contrast', value)"/></div>
+              </div>
             </div>
             <input type="button" name="clear" value="CLEAR" onclick="messageFormModule.clearForm('message-form')"/>
             <input type="button" name="submit" value="SUBMIT" onclick="messageFormModule.captureMessage('message-form')"/>
