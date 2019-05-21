@@ -183,6 +183,8 @@ form.message-form>div {
 /* LAYOUT */
 .column {
   border: #222 2px solid;
+  border-bottom-width: 0;
+  border-right-width: 0;
   padding: 12px;
   display: block;
   float: left;
