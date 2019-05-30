@@ -1,15 +1,20 @@
 import React from 'react';
 import { BrowserRouter  as Router, Route, Link } from 'react-router-dom';
 import PageLayout from './components/PageLayout.js';
+
+import AppHeader from './components/AppHeader.js';
 import logo from './logo.svg';
 import './App.css';
 
 function App() {
   return (
     <Router>
-      <Route path="/" exact component={PageLayout}/>
-      <Route path="/aa" component={PageLayout}/>
-      <Route path="/bb" />
+      <AppHeader />
+      <PageLayout>
+        <Route path="/" exact component={PageLayout} />
+        <Route path="/aa" component={PageLayout} />
+        <Route path="/bb" />
+      </PageLayout>
       <div className="App">
 
 
