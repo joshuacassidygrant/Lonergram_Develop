@@ -5,7 +5,7 @@ import {Logo} from './Logo';
 export default class AppHeader extends Component{
   render() {
       return (
-          <div className="container" id="nav-container">
+          <header className="container" id="nav-container">
             <div className="row">
               <div className="column above right half brand-bg">
                 <Logo />
@@ -14,7 +14,7 @@ export default class AppHeader extends Component{
                 <NavBar />
               </div>
             </div>
-          </div>
+          </header>
       )
   }
 }
