@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import FilterInput from './FilterInput';
+import PhotoDisplayer from './PhotoDisplayer';
 
 export default class FormPanel extends Component {
 
@@ -36,12 +37,12 @@ export default class FormPanel extends Component {
         <div>
         YOUR PHOTO:
           <div id="message-photo-frame">
-            <img src={this.state.image} />
+            <PhotoDisplayer imageSource={this.state.image} />
           </div>
         </div>
 
         <div>
-          <input type="file" id="message-photo-upload" accept="image/*" onChange={this.handleImageUpload(this.files)}/>
+          <input type="file" id="message-photo-upload" accept="image/*" onChange={this.handleImageUpload}/>
         </div>
         <div>
           CHOOSE FILTERS:
@@ -64,9 +65,19 @@ export default class FormPanel extends Component {
     event.preventDefault();
   }
 
+  handleImageUpload = (event) => {
+    var file = event.target.files[0];
+    var that = this;
+    if (file == null) return;
+    var reader = new FileReader();
+       reader.readAsDataURL(file);
+       reader.onload = function () {
+         that.renderPreviewImageFromBase64(reader.result);
+       };
+  }
+
   handleFilterChanged = (filterType, value) => {
     this.setState({[filterType]: value});
-    console.log(this.state);
   }
 
   messageModule = null;
@@ -100,15 +111,7 @@ export default class FormPanel extends Component {
       this.clearForm(nodeId);
   }
 
-  handleImageUpload = (files) => {
-    var that = this;
-    if (files == null) return;
-    var reader = new FileReader();
-       reader.readAsDataURL(files[0]);
-       reader.onload = function () {
-         that.renderPreviewImageFromBase64(reader.result);
-       };
-  }
+
 
   clearPreviewImage = () => {
     let node = document.getElementById("message-photo-frame");

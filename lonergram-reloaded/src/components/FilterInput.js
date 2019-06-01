@@ -14,7 +14,6 @@ export default class FilterInput extends Component {
   }
 
   handleChange = (event) => {
-    console.log(event.target.value);
     this.props.filterChangedEvent(this.props.filterType, event.target.value);
   }
 
