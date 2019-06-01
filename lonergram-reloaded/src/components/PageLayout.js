@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 export default class PageLayout extends Component{
   render () {
     return (
-      <div class="row">
+      <div className="row">
         {this.props.children}
       </div>
     );

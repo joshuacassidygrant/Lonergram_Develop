@@ -1,10 +1,30 @@
 import React, { Component } from 'react';
+import FilterInput from './FilterInput';
 
 export default class FormPanel extends Component {
 
+  defaultState = () => {
+    return {
+      image: null,
+      message: "",
+      user: "",
+      sepia: 0,
+      hueShift: 0,
+      blur: 0,
+      constrast: 1
+    }
+  }
+
+  constructor(props) {
+    super(props);
+    this.state = this.defaultState();
+
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
   render = () => {
     return (
-      <form className="message-form" id="message-form">
+      <form className="message-form" id="message-form" onSubmit={this.handleSubmit}>
         <div>
           YOUR MESSAGE:
           <textarea className="message-input" id="message-text"></textarea>
@@ -15,7 +35,9 @@ export default class FormPanel extends Component {
         </div>
         <div>
         YOUR PHOTO:
-          <div id="message-photo-frame"></div>
+          <div id="message-photo-frame">
+            <img src={this.state.image} />
+          </div>
         </div>
 
         <div>
@@ -23,18 +45,28 @@ export default class FormPanel extends Component {
         </div>
         <div>
           CHOOSE FILTERS:
-          <div class="filters-list">
-            <div class="filter-group"><label>SEPIA</label><input type="range" id="filter-sepia" min="0" max="100" value="0" onChange={this.setFilter('sepia', value)} /></div>
-            <div class="filter-group"><label>HUE</label><input type="range" id="filter-hueshift" min="0" max="100" value="0" onChange={this.setFilter('hueShift', value)}  /></div>
-            <div class="filter-group"><label>BLUR </label><input type="range" id="filter-blur" min="0" max="100" value="0" onChange={this.setFilter('blur', value)} /></div>
-            <div class="filter-group"><label>CONTRAST </label><input type="range" id="filter-contrast" min="0" max="5" value="1" onChange={this.setFilter('contrast', value)} /></div>
+          <div className="filters-list">
+            <FilterInput labelText="SEPIA" filterType="sepia" filterChangedEvent={this.handleFilterChanged} value={this.state.sepia}/>
+            <FilterInput labelText="HUE" filterType="hueShift" filterChangedEvent={this.handleFilterChanged} value={this.state.hueShift}/>
+            <FilterInput labelText="BLUR" filterType="blur" filterChangedEvent={this.handleFilterChanged} value={this.state.blur}/>
+            <FilterInput labelText="CONTRAST" filterType="contrast" filterChangedEvent={this.handleFilterChanged} value={this.state.contrast}/>
           </div>
         </div>
 
         <input type="button" name="clear" value="CLEAR" onClick={this.clearForm('message-form')}/>
-        <input type="button" name="submit" value="SUBMIT" onClick={this.captureMessage('message-form')}/>
+        <input type="submit" name="submit" value="SUBMIT"/>
       </form>
     )
+  }
+
+  handleSubmit (event) {
+    this.captureMessage("message-form");
+    event.preventDefault();
+  }
+
+  handleFilterChanged = (filterType, value) => {
+    this.setState({[filterType]: value});
+    console.log(this.state);
   }
 
   messageModule = null;
@@ -141,4 +173,6 @@ export default class FormPanel extends Component {
     }
 
   }
+
+
 }
