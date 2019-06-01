@@ -4,6 +4,7 @@ export default class MessageFeed extends Component {
   render () {
     return (
       <div className="message-area" id="message-scroll">
+        {this.props.children}
       </div>
     )
   }

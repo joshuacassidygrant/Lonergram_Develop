@@ -10,7 +10,7 @@ export default class AppHeader extends Component{
               <div className="column above right half brand-bg">
                 <Logo />
               </div>
-              <div className="above half">
+              <div className="column above half">
                 <NavBar />
               </div>
             </div>
