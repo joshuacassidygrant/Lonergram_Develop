@@ -1,5 +1,5 @@
 function MessageFormModule(messageModule) {
-  this.messageModule = messageModule;
+/*  this.messageModule = messageModule;
 
   this.captureMessage = (nodeId) => {
       //Get each useful element from the form and create a message object with it
@@ -87,5 +87,5 @@ function MessageFormModule(messageModule) {
       child = photoFrameNode.lastElementChild;
     }
 
-  }
+  }*/
 }
