@@ -55,20 +55,20 @@ export default class FormPanel extends Component {
         <div>
           CHOOSE FILTERS:
           <div className="filters-list">
-            <FilterInput labelText="SEPIA" filterType="sepia" filterChangedEvent={this.handleFilterChanged} value={this.state.sepia}/>
-            <FilterInput labelText="HUE" filterType="hueShift" filterChangedEvent={this.handleFilterChanged} value={this.state.hueShift}/>
-            <FilterInput labelText="BLUR" filterType="blur" filterChangedEvent={this.handleFilterChanged} value={this.state.blur}/>
-            <FilterInput labelText="CONTRAST" filterType="contrast" filterChangedEvent={this.handleFilterChanged} value={this.state.contrast}/>
+            <FilterInput labelText="SEPIA" filterType="sepia" filterChangedEvent={this.handleFilterChanged} value={this.state.sepia} max="100"/>
+            <FilterInput labelText="HUE" filterType="hueShift" filterChangedEvent={this.handleFilterChanged} value={this.state.hueShift} max="100"/>
+            <FilterInput labelText="BLUR" filterType="blur" filterChangedEvent={this.handleFilterChanged} value={this.state.blur} max="100"/>
+            <FilterInput labelText="CONTRAST" filterType="contrast" filterChangedEvent={this.handleFilterChanged} value={this.state.contrast} max="6"/>
           </div>
         </div>
 
-        <input type="button" name="clear" value="CLEAR"/>
+        <input type="button" name="clear" value="CLEAR" onClick={this.handleClear} />
         <input type="submit" name="submit" value="SUBMIT"/>
       </form>
     )
   }
 
-  handleSubmit (event) {
+  handleSubmit = (event) => {
     event.preventDefault();
     let data = new FormData(event.target);
     this.captureMessage(data);
@@ -87,6 +87,10 @@ export default class FormPanel extends Component {
 
   handleFilterChanged = (filterType, value) => {
     this.setState({[filterType]: value});
+  }
+
+  handleClear = () => {
+    this.setState(this.defaultState());
   }
 
   messageModule = null;
@@ -113,49 +117,5 @@ export default class FormPanel extends Component {
     console.log(message);
     //TODO: send message to state
   }
-
-
-  /*setFilter = (id, value) => {
-    let imagePreviewNode = document.getElementById("message-photo");
-    let filters = this.getFilters();
-    this.messageModule.applyFiltersToImage(filters, imagePreviewNode);
-  }
-
-  getFilters = () => {
-    let sepiaNode = document.getElementById("filter-sepia");
-    let hueNode = document.getElementById("filter-hueshift");
-    let blurNode = document.getElementById("filter-blur");
-    let contrastNode = document.getElementById("filter-contrast");
-    //// TEMP:
-    return {
-      sepia: 0,
-      hueShift: 0,
-      blur: 0,
-      contrast: 0
-    }
-    return {
-      sepia: sepiaNode.value,
-      hueShift: hueNode.value,
-      blur: blurNode.value,
-      contrast: contrastNode.value
-    }
-  }*/
-
-
-  /*clearForm = (nodeId) => {
-    let formNode = document.querySelector("#" + nodeId);
-    if (formNode == null) return;
-    formNode.reset();
-
-    let photoFrameNode = document.querySelector("#" + nodeId + " #message-photo-frame");
-
-    let child = photoFrameNode.lastElementChild;
-    while (child) {
-      photoFrameNode.removeChild(child);
-      child = photoFrameNode.lastElementChild;
-    }
-
-  }*/
-
 
 }

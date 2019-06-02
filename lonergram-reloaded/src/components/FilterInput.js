@@ -28,7 +28,7 @@ export default class FilterInput extends Component {
           type="range"
           name={elementId}
           min="0"
-          max="100"
+          max={this.props.max}
           value={this.props.value}
           onChange={this.handleChange}
         />
