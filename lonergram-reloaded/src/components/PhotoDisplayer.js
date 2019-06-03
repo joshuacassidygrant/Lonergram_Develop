@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 export default class PhotoDisplay extends Component {
 
   render() {
-    if (this.props.imageSource == null) return "null";
+    if (this.props.imageSource == null) return "";
    return (
       <img
         src={this.props.imageSource}

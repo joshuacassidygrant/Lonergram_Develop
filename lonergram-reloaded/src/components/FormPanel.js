@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import FilterInput from './FilterInput';
 import PhotoDisplayer from './PhotoDisplayer';
+import WarningBox from './WarningBox';
 import {addMessage} from '../actions/index';
 import {connect} from 'react-redux';
 
@@ -20,7 +21,9 @@ class ConnectedFormPanel extends Component {
       sepia: 0,
       hueShift: 0,
       blur: 0,
-      contrast: 1
+      contrast: 1,
+      warningHidden: true,
+      warningText: ""
     }
   }
 
@@ -34,13 +37,14 @@ class ConnectedFormPanel extends Component {
   render = () => {
     return (
       <form className="message-form" id="message-form" onSubmit={this.handleSubmit}>
+        <WarningBox hidden={this.state.warningHidden} message={this.state.warningMessage} dismissWarning={this.dismissWarning}/>
         <div>
           YOUR MESSAGE:
-          <textarea name="message" className="message-input" id="message-text"></textarea>
+          <textarea name="message" className="message-input" id="message-text" value={this.props.message}></textarea>
         </div>
         <div>
           YOUR NAME:
-          <input name="user" type="text" id="message-user" />
+          <input name="user" type="text" id="message-user" value={this.props.user} />
         </div>
         <div>
         YOUR PHOTO:
@@ -78,7 +82,13 @@ class ConnectedFormPanel extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
+    this.dismissWarning();
     let data = new FormData(event.target);
+    if (!this.validateMessage(data)) {
+      this.warn("All messages must include a photo and a username!");
+      return;
+    }
+
     this.captureMessage(data);
   }
 
@@ -102,10 +112,22 @@ class ConnectedFormPanel extends Component {
     this.setState(this.defaultState());
   }
 
-  messageModule = null;
+  validateMessage = (data) => {
+    return (data.get("user") && this.state.photoData);
+  }
 
-  wireUpMessageModule = (messageModule) => {
-    this.messageModule = messageModule;
+  warn = (message) => {
+    this.setState({
+      warningHidden: false,
+      warningMessage: message
+    })
+  }
+
+  dismissWarning = () => {
+    this.setState({
+      warningHidden: true,
+      warningMessage: false
+    })
   }
 
   captureMessage = (formData) => {
@@ -126,6 +148,7 @@ class ConnectedFormPanel extends Component {
     }
 
     this.props.addMessage(message);
+    this.setState(this.defaultState());
   }
 }
 
