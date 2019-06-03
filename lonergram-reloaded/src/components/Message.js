@@ -9,12 +9,7 @@ export default class Message extends Component {
       <div className="message">
         <PhotoDisplayer
           imageSource={this.props.message.photo}
-          filters={{
-            sepia: this.props.message.sepia,
-            blur: this.props.message.blur,
-            contrast: this.props.message.contrast,
-            hueShift: this.props.message.hueShift
-          }}
+          filters={this.props.message.filters}
         />
         <p>{this.props.message.text}</p>
         <div className="from">{"-- " + this.props.message.user + " at " + new Date(this.props.message.time).toLocaleString()}</div>

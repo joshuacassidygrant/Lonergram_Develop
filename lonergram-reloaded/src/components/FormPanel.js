@@ -40,7 +40,7 @@ class ConnectedFormPanel extends Component {
         </div>
         <div>
           YOUR NAME:
-          <input name="author" type="text" id="message-user" />
+          <input name="user" type="text" id="message-user" />
         </div>
         <div>
         YOUR PHOTO:
@@ -89,7 +89,8 @@ class ConnectedFormPanel extends Component {
     var reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onload = function () {
-      that.setState({image: reader.result})
+      that.setState({image: reader.result});
+      that.setState({photoData: reader.result});
     };
   }
 
@@ -115,12 +116,12 @@ class ConnectedFormPanel extends Component {
       user: formData.get("user"),
       time: time,
       id: id,
-      photo: formData.get("image"),
+      photo: this.state.photoData,
       filters: {
-        sepia: formData.get("sepia"),
-        contrast: formData.get("contrast"),
-        hueShift: formData.get("hueShift"),
-        blur: formData.get("blur")
+        sepia: formData.get("filter-sepia"),
+        contrast: formData.get("filter-contrast"),
+        hueShift: formData.get("filter-hueShift"),
+        blur: formData.get("filter-blur")
       }
     }
 

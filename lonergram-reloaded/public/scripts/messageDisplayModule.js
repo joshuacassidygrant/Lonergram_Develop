@@ -1,5 +1,5 @@
 function MessageDisplayModule() {
-  this.messages = [];
+  /*this.messages = [];
 
 
   this.addMessage = (text, user, time, photo, filters, callback) => {
@@ -128,5 +128,5 @@ function MessageDisplayModule() {
 
 
 
-    this.renderMessages();
+    this.renderMessages();*/
 }
