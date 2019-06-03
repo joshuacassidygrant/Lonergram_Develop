@@ -8,9 +8,9 @@ const mapStateToProps = state => {
 
 const ConnectedMessageFeed = ({messages}) => (
   <div className="message-area" id="message-scroll">
-    {messages.map(x => (
-      <div id={"message" + x.id} key={x.id}>
-        <Message message={x}/>
+    {messages.map(el => (
+      <div id={"message" + el.id} key={el.id}>
+        <Message key={el.id} message={el}/>
       </div>
     ))}
   </div>
@@ -19,13 +19,3 @@ const ConnectedMessageFeed = ({messages}) => (
 
 const MessageFeed = connect(mapStateToProps)(ConnectedMessageFeed);
 export default MessageFeed;
-
-/*export default class MessageFeed extends Component {
-  render () {
-    return (
-      <div className="message-area" id="message-scroll">
-        {this.props.children}
-      </div>
-    )
-  }
-}*/

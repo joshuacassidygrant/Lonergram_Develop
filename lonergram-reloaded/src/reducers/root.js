@@ -8,6 +8,19 @@ function rootReducer(state = initialState, action) {
       messages: state.messages.concat(action.payload)
     });
   }
+
+  if (action.type == "IMPORT_MESSAGES") {
+    return Object.assign({}, state, {
+      messages: action.payload
+    });
+  }
+
+  if (action.type == "CLEAR_MESSAGES") {
+    return Object.assign({}, state, {
+      messages: []
+    });
+  }
+
   return state;
 };
 

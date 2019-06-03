@@ -79,9 +79,15 @@ h1.brand .c9 { color: #BAF300; }
 }
 
 /* FORM */
+.tab-controls button {
+  background-color: white;
+  margin: 12px;
+  border: 2px solid #444;
+}
+
 form.message-form {
   padding: 12px;
-  height: 85vh;
+  height: 80vh;
 }
 
 form.message-form>div {
@@ -166,7 +172,6 @@ form.message-form>div {
 /* MESSAGE CONTROLS */
 #message-controls {
   height: auto;
-  border: 2px solid #222;
 }
 
 .controls-collapsed #message-controls {
@@ -196,6 +201,7 @@ form.message-form>div {
   padding: 12px;
   display: block;
   float: left;
+  border-width: 0;
 }
 
 .row {

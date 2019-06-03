@@ -15,10 +15,13 @@ export default class TabbedPanel extends Component {
     var index = 0;
     return (
       <div>
-        {
-          this.props.children.map(el => (
-          <button onClick={this.switchToTab} key={index} value={index++}>{el.props.name}</button>
-        ))}
+        <div className="tab-controls">
+          {
+            this.props.children.map(el => (
+            <button onClick={this.switchToTab} key={index} value={index++}>{el.props.name}</button>
+          ))}
+          <hr/>
+        </div>
         <div>
           {this.props.children[this.state.tabIndex]}
         </div>
