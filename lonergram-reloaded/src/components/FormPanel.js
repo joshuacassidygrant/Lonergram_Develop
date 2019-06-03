@@ -1,8 +1,16 @@
 import React, { Component } from 'react';
 import FilterInput from './FilterInput';
 import PhotoDisplayer from './PhotoDisplayer';
+import {addMessage} from '../actions/index';
+import {connect} from 'react-redux';
 
-export default class FormPanel extends Component {
+function mapDispatchToProps(dispatch) {
+  return {
+    addMessage: message => dispatch(addMessage(message))
+  };
+}
+
+class ConnectedFormPanel extends Component {
 
   defaultState = () => {
     return {
@@ -101,10 +109,12 @@ export default class FormPanel extends Component {
 
   captureMessage = (formData) => {
     let time = new Date().getTime();
+    let id = time + Math.floor(Math.random() * 100);
     let message = {
       text: formData.get("message"),
       user: formData.get("user"),
       time: time,
+      id: id,
       photo: formData.get("image"),
       filters: {
         sepia: formData.get("sepia"),
@@ -114,8 +124,10 @@ export default class FormPanel extends Component {
       }
     }
 
-    console.log(message);
-    //TODO: send message to state
+    this.props.addMessage(message);
   }
-
 }
+
+const FormPanel = connect(null, mapDispatchToProps)(ConnectedFormPanel);
+
+export default FormPanel;
