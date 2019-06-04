@@ -253,6 +253,22 @@ form.message-form>div {
   z-index: 5;
 }
 
+
+/* DETAILS-BOX*/
+.details-box {
+  position: absolute;
+  width: 512px;
+  left: calc(50% - 256px);
+  background-color: #fff;
+  border: 2px solid #444;
+  padding: 24px;
+  z-index: 5;
+}
+
+.details-box img {
+  max-width: 490px;
+}
+
 @media screen and (max-width: 1160px) {
   #main-container {
     width: 800px;

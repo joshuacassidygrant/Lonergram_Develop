@@ -3,6 +3,9 @@ import PhotoDisplayer from './PhotoDisplayer';
 
 export default class Message extends Component {
 
+  handleDetails = () => {
+    this.props.select(this.props.message);
+  }
 
   render () {
     return (
@@ -13,7 +16,10 @@ export default class Message extends Component {
         />
         <p>{this.props.message.text}</p>
         <div className="from">{"-- " + this.props.message.user + " at " + new Date(this.props.message.time).toLocaleString()}</div>
+        <button onClick={this.handleDetails}>Details</button>
       </div>
     )
+
+
   }
 }
