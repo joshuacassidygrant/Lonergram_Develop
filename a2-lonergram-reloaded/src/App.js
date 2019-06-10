@@ -6,7 +6,6 @@ import Feed from './pages/Feed.js';
 import Privacy from './pages/Privacy.js';
 
 import AppHeader from './components/AppHeader.js';
-import IncludeScripts from './components/infra/IncludeScripts';
 
 import logo from './logo.svg';
 import './App.css';
@@ -21,7 +20,6 @@ function App() {
           <Route path="/about" component={About} />
           <Route path="/privacy" component={Privacy} />
         </PageLayout>
-        <IncludeScripts />
       </Router>
     </div>
   );
