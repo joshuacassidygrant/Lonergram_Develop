@@ -3,7 +3,6 @@ import FormPanel from '../components/FormPanel';
 import MessageFeed from '../components/MessageFeed';
 import ControlPanel from '../components/ControlPanel';
 import TabbedPanel from '../components/TabbedPanel';
-import TestComponent from '../components/TestComponent';
 
 export default class Feed extends Component {
   render() {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter  as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter  as Router, Route } from 'react-router-dom';
 import PageLayout from './components/PageLayout';
 import About from './pages/About.js';
 import Feed from './pages/Feed.js';
@@ -7,7 +7,6 @@ import Privacy from './pages/Privacy.js';
 
 import AppHeader from './components/AppHeader.js';
 
-import logo from './logo.svg';
 import './App.css';
 
 function App() {

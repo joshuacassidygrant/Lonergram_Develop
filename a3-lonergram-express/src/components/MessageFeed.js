@@ -2,9 +2,14 @@ import React, { Component } from 'react';
 import Message from './Message';
 import DetailBox from './DetailBox';
 import {connect} from 'react-redux';
+import {fetchMessages} from '../actions/messageActions';
 
 const mapStateToProps = state => {
-  return {messages: state.messages};
+  return {
+    messages: state.messages,
+    loading: state.loading,
+    error: state.error
+  };
 };
 
 class ConnectedMessageFeed extends Component {
@@ -13,18 +18,16 @@ class ConnectedMessageFeed extends Component {
     this.state = {
       messages: null,
       hiddenDetailBox: true,
-      detailBoxMessage: null
+      detailBoxMessage: ""
     };
   }
 
   componentWillMount(){
-    fetch("http://localhost:9000/messages")
-      .then(res=> res.text())
-      .then(res => this.setState({messages: JSON.parse(res)}));
+    this.props.dispatch(fetchMessages());
   }
 
   render () {
-    if (this.state.messages == null) {
+    if (this.props.messages == null) {
         return(
           <div className="message-area" id="message-scroll">
             Loading!
@@ -35,8 +38,7 @@ class ConnectedMessageFeed extends Component {
     return (
       <div className="message-area" id="message-scroll">
       <DetailBox hidden={this.state.hiddenDetailBox} message={this.state.detailBoxMessage} dismissDetail={this.dismissDetails} />
-
-        {this.state.messages.map(el => (
+        {this.props.messages.map(el => (
           <div id={"message" + el.id} key={el.id}>
             <Message key={el.id} message={el} select={this.detailView}/>
           </div>
