@@ -7,7 +7,7 @@ export default class TestComponent extends Component{
   }
 
   testApi() {
-    fetch("http://localhost:9000/test")
+    fetch("http://localhost:9000/messages")
       .then(res=> res.text())
       .then(res => this.setState({apiResponse: res}));
   }
