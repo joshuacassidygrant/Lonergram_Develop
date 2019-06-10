@@ -11,7 +11,6 @@ export default class Feed extends Component {
       <div className="row">
         <div className="column one-third right" id="left-hand-column">
           <TabbedPanel>
-            <TestComponent name="Test" />
             <FormPanel name="Add Message" />
             <ControlPanel name="Controls" />
           </TabbedPanel>
