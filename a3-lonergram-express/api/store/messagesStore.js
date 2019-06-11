@@ -17,7 +17,6 @@ const store = {
   },
 
   add(message) {
-    console.log(message);
     this.content.push(message);
   }
 

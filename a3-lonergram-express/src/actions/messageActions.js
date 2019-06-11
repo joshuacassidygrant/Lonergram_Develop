@@ -29,6 +29,7 @@ export function addNewMessage(message) {
     .then(handleErrors)
     .then(res => res.json())
     .then(json => {
+      fetchMessages();
       return json;
     })
     .catch(error => {

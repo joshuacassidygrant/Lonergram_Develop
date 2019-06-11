@@ -149,7 +149,7 @@ class ConnectedFormPanel extends Component {
       }
     }
 
-    //this.props.addMessage(message);
+    this.props.addMessage(message);
     addNewMessage(message);
     this.setState(this.defaultState());
   }
