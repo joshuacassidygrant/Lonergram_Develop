@@ -14,6 +14,29 @@ export function fetchMessages() {
   }
 }
 
+export function addNewMessage(message) {
+  //return dispatch => {
+    return fetch("http://localhost:9000/messages", {
+      method: 'POST',
+      mode: 'cors',
+      cache: 'no-cache',
+      headers: {
+        'Content-Type' : 'application/json',
+        },
+      body: JSON.stringify(message)
+      },
+    )
+    .then(handleErrors)
+    .then(res => res.json())
+    .then(json => {
+      return json;
+    })
+    .catch(error => {
+      console.log(error);
+    })
+  //}
+}
+
 function handleErrors(res) {
   if (!res.ok) {
     throw Error(res.statusText);

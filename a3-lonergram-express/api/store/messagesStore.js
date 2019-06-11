@@ -14,6 +14,11 @@ const store = {
 
   get() {
     return this.content;
+  },
+
+  add(message) {
+    console.log(message);
+    this.content.push(message);
   }
 
 }
