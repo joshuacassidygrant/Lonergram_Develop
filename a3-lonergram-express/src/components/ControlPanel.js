@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {importMessages, clearMessages} from '../actions/index';
 import {connect} from 'react-redux';
-
+import {clearAllMessages} from '../actions/messageActions';
 
 const mapDispatchToProps = (dispatch) => {
   return {
@@ -58,6 +58,7 @@ class ConnectedControlPanel extends Component {
   }
 
   handleClear = () => {
+    clearMessages();
     this.props.clearMessages();
   }
 }

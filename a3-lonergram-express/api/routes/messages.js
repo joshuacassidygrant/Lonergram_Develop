@@ -13,4 +13,10 @@ router.post('/', function(req, res, next) {
   res.send(store.get());
 });
 
+router.delete('/', function(req,res, next) {
+  console.log("del");
+  store.clear();
+  res.send("Cleared");
+});
+
 module.exports = router;

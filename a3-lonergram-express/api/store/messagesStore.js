@@ -18,6 +18,11 @@ const store = {
 
   add(message) {
     this.content.push(message);
+  },
+
+  clear() {
+    this.content = [];
+    return this.content;
   }
 
 }

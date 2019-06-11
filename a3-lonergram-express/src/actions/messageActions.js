@@ -38,6 +38,24 @@ export function addNewMessage(message) {
   //}
 }
 
+export function clearAllMessages() {
+  return dispatch => {
+    dispatch(fetchMessagesBegin());
+    return fetch("http://localhost:9000/messages", {
+          method: 'DELETE',
+          mode: 'cors',
+          cache: 'no-cache'
+        })
+          .then(handleErrors)
+          .then(res => res.json())
+          .then(json => {
+            dispatch(fetchMessagesSuccess(json));
+            return json;
+          })
+          .catch(error => dispatch(fetchMessagesError(error)))
+  }
+}
+
 function handleErrors(res) {
   if (!res.ok) {
     throw Error(res.statusText);
