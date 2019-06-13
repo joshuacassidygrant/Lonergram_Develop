@@ -230,6 +230,10 @@ form.message-form>div {
   width: 25%;
 }
 
+.three-quarter {
+  width: calc(75% - 52px);
+}
+
 .half {
   width: calc(50% - 29px);
 }

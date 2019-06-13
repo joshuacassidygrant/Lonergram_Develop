@@ -13,13 +13,17 @@ export default class DetailBox extends Component {
 
   render() {
     if (this.props.hidden === true) return "";
+    if (this.state.edit) {
+      return (
+        <div className="details-box">
+          <div>
+            <EditPanel message={this.props.message} dismiss={this.dismiss}/>
+          </div>
+        </div>
+      )
+    }
     return (
       <div className="details-box">
-      {this.state.edit &&
-        <div className="column quarter">
-          <EditPanel message={this.props.message}/>
-        </div>
-      }
           <PhotoDisplayer
             imageSource={this.props.message.photo}
             filters={this.props.message.filters}

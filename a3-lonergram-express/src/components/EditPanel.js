@@ -18,23 +18,29 @@ export default class EditPanel extends Component {
   render() {
     return (
       <div>
-        <textarea name="text" onChange={this.handleTextChange} />
-        <div className="filters-list">
-          <FilterInput labelText="SEPIA" filterType="sepia" filterChangedEvent={this.handleFilterChanged} value={this.state.sepia} max="100"/>
-          <FilterInput labelText="HUE" filterType="hueShift" filterChangedEvent={this.handleFilterChanged} value={this.state.hueShift} max="100"/>
-          <FilterInput labelText="BLUR" filterType="blur" filterChangedEvent={this.handleFilterChanged} value={this.state.blur} max="100"/>
-          <FilterInput labelText="CONTRAST" filterType="contrast" filterChangedEvent={this.handleFilterChanged} value={this.state.contrast} max="6"/>
+        <div className="column quarter">
+          <textarea name="text" onChange={this.handleTextChange} />
+          <input type="text" onChange={this.handleEditorNameChange} />
+          <div className="filters-list">
+            <FilterInput labelText="SEPIA" filterType="sepia" filterChangedEvent={this.handleFilterChanged} value={this.state.sepia} max="100"/>
+            <FilterInput labelText="HUE" filterType="hueShift" filterChangedEvent={this.handleFilterChanged} value={this.state.hueShift} max="100"/>
+            <FilterInput labelText="BLUR" filterType="blur" filterChangedEvent={this.handleFilterChanged} value={this.state.blur} max="100"/>
+            <FilterInput labelText="CONTRAST" filterType="contrast" filterChangedEvent={this.handleFilterChanged} value={this.state.contrast} max="6"/>
+          </div>
+          <button onClick={this.handleSubmit}>Submit</button>
+          <button onClick={this.props.dismiss}>Dismiss</button>
         </div>
-        <button onClick={this.handleSubmit}>Submit</button>
-        <PhotoDisplayer
-        filters = {{
-            sepia: this.state.sepia,
-            hueShift: this.state.hueShift,
-            blur: this.state.blur,
-            contrast: this.state.contrast
-          }}
-          imageSource={this.props.message.photo}
-        />
+        <div className="column three-quarter">
+          <PhotoDisplayer
+          filters = {{
+              sepia: this.state.sepia,
+              hueShift: this.state.hueShift,
+              blur: this.state.blur,
+              contrast: this.state.contrast
+            }}
+            imageSource={this.props.message.photo}
+          />
+          </div>
       </div>
     )
   }
@@ -42,6 +48,13 @@ export default class EditPanel extends Component {
   handleSubmit = () => {
     let message = this.captureMessage();
     editMessage(message);
+    this.props.dismiss();
+  }
+
+  handleEditorNameChange = (event) => {
+    this.setState({
+      editorName: event.target.value
+    })
   }
 
   handleTextChange = (event) => {
@@ -55,13 +68,28 @@ export default class EditPanel extends Component {
   }
 
   captureMessage = () => {
-    let time = this.props.message.time;
-    let id = this.props.message.id;
+    let editTime = new Date().getTime();
+    let editId = this.props.message.id + editTime + Math.floor(Math.random() * 100);
+    let editEntry = {
+      editorName: this.state.editorName,
+      id: editId,
+      time: editTime
+    }
+
+    if (this.props.message.edits === undefined) {
+        this.props.message.edits = [
+          editEntry
+        ]
+    } else {
+      this.props.message.edits.push(editEntry);
+    }
+
     let message = {
       text: this.state.text,
       user: this.props.message.user,
       time: this.props.message.time,
-      id: id,
+      id: this.props.message.id,
+      edits: this.props.message.edits,
       photo: this.props.message.photo,
       filters: {
         sepia: this.state.sepia,
