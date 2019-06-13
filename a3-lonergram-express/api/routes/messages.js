@@ -13,10 +13,13 @@ router.post('/', function(req, res, next) {
   res.send(store.get());
 });
 
-router.delete('/', function(req,res, next) {
-  console.log("del");
+router.delete('/', function(req, res, next) {
   store.clear();
   res.send("Cleared");
+});
+
+router.put('/:messageId/', function(req, res, next) {
+  store.put(req.body);
 });
 
 module.exports = router;

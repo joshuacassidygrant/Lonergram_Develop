@@ -60,7 +60,6 @@ class ConnectedMessageFeed extends Component {
       hiddenDetailBox: false,
       detailBoxMessage: message
     });
-    console.log("here");
   }
 
   dismissDetails = () => {

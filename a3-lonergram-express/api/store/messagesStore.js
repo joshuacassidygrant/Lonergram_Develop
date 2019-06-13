@@ -20,6 +20,21 @@ const store = {
     this.content.push(message);
   },
 
+  put(message) {
+    try {
+      this.removeAt(message.id);
+      this.add(message);
+    } catch (e) {
+      console.log(e);
+    }
+  },
+
+  removeAt(id) {
+    this.content = this.content.filter((value, index, arr) => {
+      return id != value.id;
+    })
+  },
+
   clear() {
     this.content = [];
     return this.content;
