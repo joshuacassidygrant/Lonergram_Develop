@@ -6,7 +6,7 @@ import {clearAllMessages} from '../actions/messageActions';
 const mapDispatchToProps = (dispatch) => {
   return {
     importMessages: messages => dispatch(importMessages(messages)),
-    clearMessages: () => dispatch(clearMessages(null))
+    clearMessages: () => dispatch(clearAllMessages(null))
   };
 }
 

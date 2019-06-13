@@ -35,6 +35,14 @@ class ConnectedMessageFeed extends Component {
         )
     }
 
+    if (this.props.messages.length < 1) {
+      return (
+        <div className="message-area" id="message-scroll">
+          Couldn't find any pictures. Why don't you add one?
+        </div>
+      )
+    }
+
     return (
       <div className="message-area" id="message-scroll">
       <DetailBox hidden={this.state.hiddenDetailBox} message={this.state.detailBoxMessage} dismissDetail={this.dismissDetails} />
