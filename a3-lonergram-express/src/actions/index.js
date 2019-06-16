@@ -16,8 +16,28 @@ export function fetchMessagesError(payload) {
   }
 }
 
-export function addMessage(payload) {
-  return {type: "ADD_MESSAGE", payload};
+export function addMessageBegin(payload) {
+  return {type: "ADD_MESSAGE_BEGIN", payload};
+}
+
+export function addMessageSuccess(payload) {
+  return {type: "ADD_MESSAGE_SUCCESS", payload};
+}
+
+export function addMessageError(payload) {
+  return {type: "ADD_MESSAGE_ERROR", payload};
+}
+
+export function editMessageBegin(payload) {
+  return {type: "EDIT_MESSAGE_BEGIN", payload};
+}
+
+export function editMessageSuccess(payload) {
+  return {type: "EDIT_MESSAGE_SUCCESS", payload};
+}
+
+export function editMessageError(payload) {
+  return {type: "EDIT_MESSAGE_ERROR", payload};
 }
 
 export function importMessages(payload) {

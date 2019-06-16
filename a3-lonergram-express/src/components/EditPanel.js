@@ -1,9 +1,16 @@
 import React, {Component} from 'react';
 import {editMessage} from '../actions/messageActions';
+import {connect} from 'react-redux';
 import FilterInput from './FilterInput';
 import PhotoDisplayer from './PhotoDisplayer';
 
-export default class EditPanel extends Component {
+function mapDispatchToProps(dispatch) {
+  return {
+    editMessage: message => dispatch(editMessage(message))
+  };
+}
+
+class ConnectedEditPanel extends Component {
   constructor(props) {
     super(props);
 
@@ -53,9 +60,10 @@ export default class EditPanel extends Component {
     )
   }
 
-  handleSubmit = () => {
+  handleSubmit = (event) => {
+    event.preventDefault();
     let message = this.captureMessage();
-    editMessage(message);
+    this.props.editMessage(message);
     this.props.dismiss();
   }
 
@@ -110,3 +118,7 @@ export default class EditPanel extends Component {
     return message;
   }
 }
+
+const EditPanel = connect(null, mapDispatchToProps)(ConnectedEditPanel);
+
+export default EditPanel;

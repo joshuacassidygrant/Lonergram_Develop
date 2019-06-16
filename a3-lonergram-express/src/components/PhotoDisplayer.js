@@ -10,6 +10,7 @@ export default class PhotoDisplay extends Component {
         style={this.getStyleObject(
           this.props.filters
         )}
+        alt="Wow!"
       />
     )
   }

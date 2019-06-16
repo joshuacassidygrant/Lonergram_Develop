@@ -10,7 +10,7 @@ router.get('/', function(req, res, next) {
 
 router.post('/', function(req, res, next) {
   store.add(req.body);
-  res.send(store.get());
+  res.send(req.body);
 });
 
 router.delete('/', function(req, res, next) {
@@ -20,6 +20,7 @@ router.delete('/', function(req, res, next) {
 
 router.put('/:messageId/', function(req, res, next) {
   store.put(req.body);
+  res.send(req.body);
 });
 
 module.exports = router;

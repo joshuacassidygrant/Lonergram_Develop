@@ -2,14 +2,13 @@ import React, { Component } from 'react';
 import FilterInput from './FilterInput';
 import PhotoDisplayer from './PhotoDisplayer';
 import WarningBox from './WarningBox';
-import {addMessage} from '../actions/index';
 import {connect} from 'react-redux';
 import {addNewMessage} from '../actions/messageActions';
 
 
 function mapDispatchToProps(dispatch) {
   return {
-    addMessage: message => dispatch(addMessage(message))
+    addMessage: message => dispatch(addNewMessage(message))
   };
 }
 
@@ -150,7 +149,6 @@ class ConnectedFormPanel extends Component {
     }
 
     this.props.addMessage(message);
-    addNewMessage(message);
     this.setState(this.defaultState());
   }
 }
