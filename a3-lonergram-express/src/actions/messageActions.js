@@ -15,7 +15,6 @@ export function fetchMessages() {
 }
 
 export function addNewMessage(message) {
-  //return dispatch => {
     return fetch("http://localhost:9000/messages", {
       method: 'POST',
       mode: 'cors',
@@ -35,12 +34,10 @@ export function addNewMessage(message) {
     .catch(error => {
       console.log(error);
     })
-  //}
 }
 
 
 export function editMessage(message) {
-  //return dispatch => {
     return fetch("http://localhost:9000/messages/" + message.id, {
       method: 'PUT',
       mode: 'cors',
@@ -60,7 +57,6 @@ export function editMessage(message) {
     .catch(error => {
       console.log(error);
     })
-  //}
 }
 
 export function clearAllMessages() {

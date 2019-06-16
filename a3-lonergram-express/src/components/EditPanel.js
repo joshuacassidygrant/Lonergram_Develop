@@ -19,16 +19,24 @@ export default class EditPanel extends Component {
     return (
       <div>
         <div className="column quarter">
-          <textarea name="text" onChange={this.handleTextChange} />
-          <input type="text" onChange={this.handleEditorNameChange} />
-          <div className="filters-list">
-            <FilterInput labelText="SEPIA" filterType="sepia" filterChangedEvent={this.handleFilterChanged} value={this.state.sepia} max="100"/>
-            <FilterInput labelText="HUE" filterType="hueShift" filterChangedEvent={this.handleFilterChanged} value={this.state.hueShift} max="100"/>
-            <FilterInput labelText="BLUR" filterType="blur" filterChangedEvent={this.handleFilterChanged} value={this.state.blur} max="100"/>
-            <FilterInput labelText="CONTRAST" filterType="contrast" filterChangedEvent={this.handleFilterChanged} value={this.state.contrast} max="6"/>
-          </div>
-          <button onClick={this.handleSubmit}>Submit</button>
-          <button onClick={this.props.dismiss}>Dismiss</button>
+          <form>
+            <div>
+              EDITED TEXT:
+              <textarea name="text" onChange={this.handleTextChange} />
+            </div>
+            <div>
+              YOUR NAME:
+              <input type="text" onChange={this.handleEditorNameChange} />
+            </div>
+            <div className="filters-list">
+              <FilterInput labelText="SEPIA" filterType="sepia" filterChangedEvent={this.handleFilterChanged} value={this.state.sepia} max="100"/>
+              <FilterInput labelText="HUE" filterType="hueShift" filterChangedEvent={this.handleFilterChanged} value={this.state.hueShift} max="100"/>
+              <FilterInput labelText="BLUR" filterType="blur" filterChangedEvent={this.handleFilterChanged} value={this.state.blur} max="100"/>
+              <FilterInput labelText="CONTRAST" filterType="contrast" filterChangedEvent={this.handleFilterChanged} value={this.state.contrast} max="6"/>
+            </div>
+            <button onClick={this.handleSubmit}>Submit</button>
+            <button onClick={this.props.dismiss}>Dismiss</button>
+          </form>
         </div>
         <div className="column three-quarter">
           <PhotoDisplayer

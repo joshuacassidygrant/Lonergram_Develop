@@ -272,7 +272,8 @@ form.message-form>div {
 }
 
 .details-box img {
-  width: 100%;
+  height: 70vh;
+  width: auto;
 }
 
 @media screen and (max-width: 1160px) {
