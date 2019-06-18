@@ -1,19 +1,13 @@
 export function fetchMessagesBegin(payload) {
-  return {
-    type: "FETCH_MESSAGES_BEGIN", payload
-  }
+  return { type: "FETCH_MESSAGES_BEGIN", payload }
 }
 
 export function fetchMessagesSuccess(payload) {
-  return {
-    type: "FETCH_MESSAGES_SUCCESS", payload
-  }
+  return { type: "FETCH_MESSAGES_SUCCESS", payload }
 }
 
 export function fetchMessagesError(payload) {
-  return {
-    type: "FETCH_MESSAGES_ERROR", payload
-  }
+  return {type: "FETCH_MESSAGES_ERROR", payload }
 }
 
 export function addMessageBegin(payload) {
