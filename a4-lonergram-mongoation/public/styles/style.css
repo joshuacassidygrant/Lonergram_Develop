@@ -1,0 +1,309 @@
+body {
+  background-color: #eee;
+  font-family: "Lato", sans-serif;
+}
+
+#main-container {
+  width: 1160px;
+  background-color: #fff;
+  margin: auto;
+}
+
+
+
+/* BRANDING */
+.brand-bg {
+  background-color: #555;
+}
+
+h1.brand {
+  font-family: "Modak", cursive;
+  font-weight: 400;
+  margin: 0;
+  font-size: 3em;
+  margin-left: 16px;
+}
+
+h1.brand span {
+  margin-left: -4px;
+  text-shadow:
+   -2px -2px 0 #222,
+    2px -2px 0 #222,
+    -2px 2px 0 #222,
+     2px 2px 0 #222;
+  display: inline-block;
+  transition: margin-left 0.5s ease-in, transform 0.1s ease-in-out;
+}
+
+h1.brand:hover span {
+  margin-left: 0.5px;
+}
+
+h1.brand span:hover {
+  transform: scale(1.2);
+}
+
+h1.brand .c1 { color: #8D41D6; }
+h1.brand .c2 { color: #B90091; }
+h1.brand .c3 { color: #BAF300; }
+h1.brand .c4 { color: #8D41D6; }
+h1.brand .c5 { color: #FFF773; }
+h1.brand .c6 { color: #799E00; }
+h1.brand .c7 { color: #DC37BB; }
+h1.brand .c8 { color: #FFF100; }
+h1.brand .c9 { color: #BAF300; }
+
+
+/* NAVBAR */
+#nav-container .column {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.navbar {
+  padding: 27px;
+  text-align: right;
+  display: block;
+}
+
+.navbar a {
+  text-decoration: none;
+  font-weight: 700;
+  padding-left: 12px;
+  color: #DC37BB;
+  cursor: pointer;
+}
+
+.navbar a:hover {
+  color: #8D41D6;
+}
+
+/* FORM */
+.tab-controls button {
+  background-color: white;
+  margin: 12px;
+  border: 2px solid #444;
+}
+
+form.message-form {
+  padding: 12px;
+  height: 80vh;
+}
+
+form.message-form>div {
+  margin-top: 12px;
+}
+
+.message-form textarea {;
+  height: 48px;
+  resize: none;
+  display: block;
+  width: 98%;
+  margin-bottom: 4px;
+  border: 2px solid #222;
+}
+
+.message-form input[type=text]  {
+  border: 2px solid #222;
+  display: block;
+  width: 100%;
+  margin-bottom: 4px;
+}
+
+.filters-list {
+  border: 2px solid #222;
+  padding: 12px;
+  margin-bottom: 12px;
+}
+
+.filter-group label {
+  width: 144px;
+  display: inline-block;
+}
+
+#message-photo-frame {
+  max-height: 360px;
+  overflow-y: scroll;
+}
+
+#message-photo-frame img {
+  max-width: 100%;
+}
+
+.warning {
+  border: 2px solid #e22;
+  background-color: #ebb;
+  padding: 6px;
+}
+
+
+/* MESSAGE AREA */
+.message-bg {
+  background-color: #DDD;
+}
+
+.message-area {
+  height: calc(85vh - 128px);
+  overflow-y: scroll;
+  padding: 12px;
+}
+
+.controls-collapsed .message-area {
+  height: calc(85vh - 24px);
+}
+
+.message {
+  background-color: #fff;
+  padding: 12px;
+  margin-bottom: 24px;
+  border: 2px solid #222;
+}
+
+.message .from {
+  text-align: right;
+  font-style: italic;
+}
+
+.message img {
+  width: 100%;
+  margin-bottom: 4px;
+}
+
+/* MESSAGE CONTROLS */
+#message-controls {
+  height: auto;
+}
+
+.controls-collapsed #message-controls {
+  height: 24px;
+  overflow-y:hidden;
+
+}
+
+#message-controls .row#controls-toggle {
+  background-color: #BAF300;
+  padding: 4px 8px;
+  cursor: pointer;
+}
+
+/* LAYOUT */
+.column {
+  border: #222 2px solid;
+  border-bottom-width: 0;
+  border-right-width: 0;
+  padding: 12px;
+  display: block;
+  float: left;
+
+}
+
+.column-borderless {
+  padding: 12px;
+  display: block;
+  float: left;
+  border-width: 0;
+}
+
+.row {
+  display: block;
+
+}
+
+.right {
+  border-right-width: 0;
+}
+
+.above {
+  border-bottom-width: 0;
+}
+
+.one-third {
+  width: calc(33% - 23px);
+  margin-left: 0;
+}
+
+.two-thirds {
+  width: calc(66% - 23px);
+}
+
+.quarter {
+  width: 25%;
+}
+
+.three-quarter {
+  width: calc(75% - 52px);
+}
+
+.half {
+  width: calc(50% - 29px);
+}
+
+.full {
+  width: calc(100% - 32px);
+}
+
+.padded-inner {
+  padding: 72px;
+}
+
+/* WARNING-BOX*/
+.warning-box {
+  position: absolute;
+  width: 256px;
+  left: calc(50% - 128px);
+  background-color: #fcc;
+  border: 2px solid #444;
+  padding: 24px;
+  z-index: 5;
+}
+
+
+/* DETAILS-BOX*/
+.details-box {
+  position: absolute;
+  width: 90%;
+  height: 85%;
+  left: 5%;
+  top: 5%;
+  background-color: #fff;
+  border: 2px solid #444;
+  padding: 24px;
+  z-index: 5;
+}
+
+.details-box img {
+  height: 70vh;
+  width: auto;
+}
+
+@media screen and (max-width: 1160px) {
+  #main-container {
+    width: 800px;
+    background-color: #fff;
+    margin: auto;
+  }
+
+}
+
+@media screen and (max-width: 800px) {
+  #main-container {
+    width: 640px;
+  }
+
+  /*TODO: fix these idiotic measurements */
+  .half {
+    width: 97%;
+  }
+
+  .one-third {
+    width: 97%;
+  }
+
+  .two-thirds {
+    width: 97%;
+  }
+
+  form.message-form {
+    height: auto;
+  }
+}
