@@ -1,4 +1,7 @@
 const fs = require('fs');
+const MongoClient = require('mongodb').MongoClient;
+const url  = 'mongodb://localhost:27017/';
+const dbName = 'lonergram';
 
 const store = {
 
@@ -12,21 +15,45 @@ const store = {
     return JSON.stringify(this.content);
   },
 
-  get() {
+  /*get() {
     return this.content;
-  },
+  },*/
+  get(callback) {
+      MongoClient.connect(url, (err, client) => {
+        if (err) {
+          throw err;
+        }
+        const db = client.db(dbName);
+        db.collection('inserts').find({}).toArray(function(err, docs) {
+          if (err) {
+            throw err;
+          }
+          callback(docs);
+        });
+        client.close();
+      })
+    },
 
   add(message) {
-    this.content.push(message);
+    MongoClient.connect(url, (err, client) => {
+      if (err) {
+        throw err;
+      }
+      const db = client.db(dbName);
+      db.collection('inserts').insertOne(message);
+      client.close();
+    })
   },
 
   put(message) {
-    try {
-      this.removeAt(message.id);
-      this.add(message);
-    } catch (e) {
-      console.log(e);
-    }
+    MongoClient.connect(url, (err, client) => {
+      if (err) {
+        throw err;
+      }
+      const db = client.db(dbName);
+      db.collection('inserts').updateOne({_id: message._id},  message);
+      client.close();
+    })
   },
 
   removeAt(id) {
@@ -38,6 +65,23 @@ const store = {
   clear() {
     this.content = [];
     return this.content;
+  },
+
+  async test() {
+    console.log("hi");
+    const client = new MongoClient(url);
+
+    try {
+      await client.connect();
+      console.log("connected");
+
+      const db = client.db(dbName);
+      let r = await db.collection('inserts').insertOne({a:1});
+    } catch (err) {
+      console.log(err);
+    }
+
+    client.close();
   }
 
 }

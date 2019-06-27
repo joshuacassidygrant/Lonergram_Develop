@@ -5,7 +5,9 @@ var store = require('../store/messagesStore');
 store.init();
 
 router.get('/', function(req, res, next) {
-    res.send(store.get());
+    store.get((results) => {
+      res.send(results);
+    });
 });
 
 router.post('/', function(req, res, next) {
@@ -19,6 +21,7 @@ router.delete('/', function(req, res, next) {
 });
 
 router.put('/:messageId/', function(req, res, next) {
+  console.log(req.body);
   store.put(req.body);
   res.send(req.body);
 });
