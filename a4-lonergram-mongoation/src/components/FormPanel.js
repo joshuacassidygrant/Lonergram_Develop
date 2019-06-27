@@ -138,7 +138,7 @@ class ConnectedFormPanel extends Component {
       text: formData.get("message"),
       user: formData.get("user"),
       time: time,
-      id: id,
+      _id: id,
       photo: this.state.photoData,
       filters: {
         sepia: formData.get("filter-sepia"),

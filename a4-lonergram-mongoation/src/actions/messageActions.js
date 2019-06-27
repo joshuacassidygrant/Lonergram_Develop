@@ -18,6 +18,7 @@ export function fetchMessages() {
 }
 
 export function addNewMessage(message) {
+  console.log(message);
   return dispatch => {
       dispatch(addMessageBegin());
       return fetch("http://localhost:9000/messages", {
@@ -47,7 +48,7 @@ export function addNewMessage(message) {
 export function editMessage(message) {
   return dispatch => {
     dispatch(editMessageBegin());
-    return fetch("http://localhost:9000/messages/" + message.id, {
+    return fetch("http://localhost:9000/messages/" + message._id, {
       method: 'PUT',
       mode: 'cors',
       cache: 'no-cache',

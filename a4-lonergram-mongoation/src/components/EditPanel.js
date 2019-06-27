@@ -85,7 +85,7 @@ class ConnectedEditPanel extends Component {
 
   captureMessage = () => {
     let editTime = new Date().getTime();
-    let editId = this.props.message.id + editTime + Math.floor(Math.random() * 100);
+    let editId = this.props.message._id + editTime + Math.floor(Math.random() * 100);
     let editEntry = {
       editorName: this.state.editorName,
       id: editId,
@@ -104,7 +104,7 @@ class ConnectedEditPanel extends Component {
       text: this.state.text,
       user: this.props.message.user,
       time: this.props.message.time,
-      id: this.props.message.id,
+      _id: this.props.message._id,
       edits: this.props.message.edits,
       photo: this.props.message.photo,
       filters: {
