@@ -7,6 +7,10 @@ export default class Message extends Component {
     this.props.select(this.props.message);
   }
 
+  handleDelete = () => {
+    this.props.delete(this.props.message);
+  }
+
   render () {
     let that = this;
     return (
@@ -29,6 +33,7 @@ export default class Message extends Component {
 
         </div>
         <button onClick={this.handleDetails}>Details</button>
+        <button onClick={this.handleDelete}>Delete</button>
       </div>
     )
 

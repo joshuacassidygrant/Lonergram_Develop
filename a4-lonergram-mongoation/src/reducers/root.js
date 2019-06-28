@@ -50,6 +50,13 @@ function rootReducer(state = baseState, action) {
     });
   }
 
+  if (action.type === "DELETE_MESSAGE_SUCCESS") {
+    //payload is the id of the deleted message
+    return Object.assign({}, state, {
+      messages: state.messages.filter((x) => x.id !== action.payload)
+    });
+  }
+
   return state;
 };
 

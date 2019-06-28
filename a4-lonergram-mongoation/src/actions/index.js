@@ -41,3 +41,15 @@ export function importMessages(payload) {
 export function clearMessages(payload) {
   return {type: "CLEAR_MESSAGES", payload};
 }
+
+export function deleteMessageBegin(payload) {
+  return {type: "DELETE_MESSAGE_BEGIN"};
+}
+
+export function deleteMessageSuccess(payload) {
+  return {type: "DELETE_MESSAGE_SUCCESS"}
+}
+
+export function deleteMessageError(payload) {
+  return {type: "DELETE_MESSAGE_ERROR"}
+}

@@ -23,4 +23,9 @@ router.put('/:messageId/', function(req, res, next) {
   res.send(req.body);
 });
 
+router.delete('/:messageId/', function(req, res, next){
+  store.delete(req.params.messageId);
+  res.send(req.params.messageId);
+});
+
 module.exports = router;

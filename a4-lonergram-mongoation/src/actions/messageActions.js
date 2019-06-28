@@ -1,7 +1,8 @@
 import {
   fetchMessagesBegin, fetchMessagesSuccess, fetchMessagesError,
   addMessageBegin, addMessageSuccess, addMessageError,
-  editMessageBegin, editMessageSuccess, editMessageError} from './index';
+  editMessageBegin, editMessageSuccess, editMessageError,
+  deleteMessageBegin, deleteMessageError, deleteMessageSuccess} from './index';
 
 export function fetchMessages() {
   return dispatch => {
@@ -69,8 +70,29 @@ export function editMessage(message) {
       dispatch(editMessageError(error));
     })
   }
-
 }
+
+export function deleteMessage(message) {
+  return dispatch => {
+    dispatch(deleteMessageBegin());
+      return fetch("http://localhost:9000/messages/" + message._id, {
+        method: 'DELETE',
+        mode: 'cors',
+        cache: 'no-cache',
+        headers: {
+          'Content-Type' : 'application/json'
+        }
+      })
+      .then(handleErrors)
+      .then(res => res.json())
+      .then(json => {
+        dispatch(deleteMessageSuccess(message._id));
+        return json;
+      })
+      .catch(error => dispatch(deleteMessageError(error)));
+    }
+  }
+
 
 export function clearAllMessages() {
   return dispatch => {

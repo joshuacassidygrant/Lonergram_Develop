@@ -57,6 +57,19 @@ const store = {
     })
   },
 
+  delete(messageId) {
+    MongoClient.connect(url, (err, client) => {
+      if (err) {
+        throw err;
+      }
+      const db = client.db(dbName);
+      console.log("NOT DELETING PROPERLY YET");
+      //NEED TO CREATE A MONGOID with ID probably?
+      db.collection(messageCollection).deleteOne({_id: messageId});
+      client.close();
+    })
+  },
+
   clear() {
     MongoClient.connect(url, (err, client) => {
       if (err) {
