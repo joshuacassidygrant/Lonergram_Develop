@@ -63,9 +63,7 @@ const store = {
         throw err;
       }
       const db = client.db(dbName);
-      console.log("NOT DELETING PROPERLY YET");
-      //NEED TO CREATE A MONGOID with ID probably?
-      db.collection(messageCollection).deleteOne({_id: messageId});
+      db.collection(messageCollection).deleteOne({_id: parseInt(messageId)}, console.log);
       client.close();
     })
   },
