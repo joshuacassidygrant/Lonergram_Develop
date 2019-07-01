@@ -32,9 +32,15 @@ function rootReducer(state = baseState, action) {
     });
   }
 
+  if (action.type === "ADD_MESSAGE_ERROR") {
+    return Object.assign({}, state, {
+      addMessageError: action.payload,
+    });
+  }
+
   if (action.type === "EDIT_MESSAGE_SUCCESS") {
     return Object.assign({}, state, {
-      messages: state.messages.filter((x) => x.id !== action.payload.id).concat(action.payload)
+      messages: state.messages.filter((x) => x._id !== action.payload._id).concat(action.payload)
     });
   }
 

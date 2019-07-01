@@ -41,11 +41,11 @@ class ConnectedFormPanel extends Component {
         <WarningBox hidden={this.state.warningHidden} message={this.state.warningMessage} dismissWarning={this.dismissWarning}/>
         <div>
           YOUR MESSAGE:
-          <textarea name="message" className="message-input" id="message-text" value={this.props.message}></textarea>
+          <textarea name="message" className="message-input" id="message-text" onChange={this.handleMessageChanged} value={this.state.message}></textarea>
         </div>
         <div>
           YOUR NAME:
-          <input name="user" type="text" id="message-user" value={this.props.user} />
+          <input name="user" type="text" id="message-user" onChange={this.handleUserChanged} value={this.state.user} />
         </div>
         <div>
         YOUR PHOTO:
@@ -63,7 +63,7 @@ class ConnectedFormPanel extends Component {
         </div>
 
         <div>
-          <input type="file" name="image" id="message-photo-upload" accept="image/*" onChange={this.handleImageUpload}/>
+          <input type="file" name="image" id="message-photo-upload" accept="image/*"  onChange={this.handleImageUpload}/>
         </div>
         <div>
           CHOOSE FILTERS:
@@ -107,6 +107,14 @@ class ConnectedFormPanel extends Component {
 
   handleFilterChanged = (filterType, value) => {
     this.setState({[filterType]: value});
+  }
+
+  handleMessageChanged = (event) => {
+    this.setState({message: event.target.value});
+  }
+
+  handleUserChanged = (event) => {
+    this.setState({user: event.target.value});
   }
 
   handleClear = () => {

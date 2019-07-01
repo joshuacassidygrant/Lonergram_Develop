@@ -19,7 +19,6 @@ export function fetchMessages() {
 }
 
 export function addNewMessage(message) {
-  console.log(message);
   return dispatch => {
       dispatch(addMessageBegin());
       return fetch("http://localhost:9000/messages", {

@@ -75,6 +75,7 @@ const store = {
       }
       const db = client.db(dbName);
       db.collection(messageCollection).drop();
+      client.close();
     });
   }
 
